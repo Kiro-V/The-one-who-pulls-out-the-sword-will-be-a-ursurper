@@ -8,7 +8,7 @@ A little script for the game "The one who pulls out the sword will be crowned ki
 3. After reseting, place the cursor on the sword
 4. Run 'py master.py'
 5. End
-.
+.\n
 .
 .
 .
