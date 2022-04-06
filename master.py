@@ -1,4 +1,5 @@
 import win32gui, win32api, win32con, ctypes
+import sys
 
 class Mouse:
     """It simulates the mouse"""
@@ -65,13 +66,19 @@ time.sleep(3.0)
 mouse = Mouse()
 mouse.press_button()
 i=1
+
+flag=sys.argv[-1]=='reset'
+threshold=500
+v1=4000
+v2=2000
 while 1:
     time.sleep(0.03)
-    print(mouse.get_position())
     x,y=mouse.get_position()
-    if i<100:
-        y = y - 300-i*2500
+    if i<threshold:
+        y = y - 300-i*v1
     else:
-        y = y - 300-i*2500
+        y = y - 300-threshold*v1-(i-threshold)*v2
     i+=1
     mouse.click((x,y))
+    if flag:
+        break
